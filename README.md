@@ -1,5 +1,8 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Description
+NextJS app only with a form that represent expenses, it will be connected with Make in order to register my savings
+
 ## Getting Started
 
 First, run the development server:
