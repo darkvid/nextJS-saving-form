@@ -46,7 +46,11 @@ const SavingForm = () => {
         <select id="category" name="category" value={category} onChange={handleCategoryChange}>
           <option value="Formación">Formación</option>
           <option value="Comida">Comida</option>
-          <option value="Entretenimiento">Entretenimiento</option>
+          <option value="Yolanda">Yolanda</option>
+          <option value="Regalos">Regalos</option>
+          <option value="Ocio">Ocio</option>
+          <option value="Gasoil">Gasoil</option>
+          <option value="Perros">Perros</option>
         </select>
       </div>
       <div>
