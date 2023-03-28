@@ -5,6 +5,7 @@ const SavingForm = () => {
   const [concept, setConcept] = useState("");
   const [quantity, setQuantity] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [apiResponse, setApiResponse] = useState("");
 
   const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setCategory(event.target.value);
@@ -37,7 +38,6 @@ const SavingForm = () => {
     ];
     const currentMonth = monthNames[currentDate.getMonth()];
     setIsSubmitting(true);
-    alert(`Has gastado ${quantity}€ en la categoría de ${category} para el concepto ${concept} en ${currentMonth}.`);
   };
 
   useEffect(() => {
@@ -46,12 +46,19 @@ const SavingForm = () => {
         `https://hook.eu1.make.com/m2geunx9mps96a3v5jos6bu5dp1kq6xz?concepto=${concept}&categoria=${category}&cantidad=${quantity}&mes=${currentMonth}`
       )
         .then((response) => response.text())
-        .then((data) => alert(data))
+        .then((data) => setApiResponse(data))
         .catch((error) => console.log(error));
 
       setIsSubmitting(false);
     }
   }, [isSubmitting]);
+
+  useEffect(() => {
+    if (apiResponse) {
+      alert(apiResponse);
+      setApiResponse("");
+    }
+  }, [apiResponse]);
 
   return (
     <form onSubmit={handleFormSubmit}>
