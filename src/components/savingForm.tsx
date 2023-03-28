@@ -1,10 +1,10 @@
-"use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const SavingForm = () => {
   const [category, setCategory] = useState("Formación");
   const [concept, setConcept] = useState("");
   const [quantity, setQuantity] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setCategory(event.target.value);
@@ -36,8 +36,22 @@ const SavingForm = () => {
       "Diciembre"
     ];
     const currentMonth = monthNames[currentDate.getMonth()];
+    setIsSubmitting(true);
     alert(`Has gastado ${quantity}€ en la categoría de ${category} para el concepto ${concept} en ${currentMonth}.`);
   };
+
+  useEffect(() => {
+    if (isSubmitting) {
+      fetch(
+        `https://hook.eu1.make.com/m2geunx9mps96a3v5jos6bu5dp1kq6xz?concepto=${concept}&categoria=${category}&cantidad=${quantity}&mes=${currentMonth}`
+      )
+        .then((response) => response.text())
+        .then((data) => alert(data))
+        .catch((error) => console.log(error));
+
+      setIsSubmitting(false);
+    }
+  }, [isSubmitting]);
 
   return (
     <form onSubmit={handleFormSubmit}>
