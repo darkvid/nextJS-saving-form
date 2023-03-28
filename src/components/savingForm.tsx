@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 
 const SavingForm = () => {
@@ -6,6 +7,21 @@ const SavingForm = () => {
   const [quantity, setQuantity] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [apiResponse, setApiResponse] = useState("");
+
+  const monthNames = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre"
+  ];
 
   const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setCategory(event.target.value);
@@ -22,28 +38,17 @@ const SavingForm = () => {
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const currentDate = new Date();
-    const monthNames = [
-      "Enero",
-      "Febrero",
-      "Marzo",
-      "Abril",
-      "Mayo",
-      "Junio",
-      "Julio",
-      "Agosto",
-      "Septiembre",
-      "Octubre",
-      "Noviembre",
-      "Diciembre"
-    ];
     const currentMonth = monthNames[currentDate.getMonth()];
     setIsSubmitting(true);
   };
 
   useEffect(() => {
     if (isSubmitting) {
+      const currentDate = new Date();
+      const currentMonth = monthNames[currentDate.getMonth()];
+
       fetch(
-        `https://hook.eu1.make.com/m2geunx9mps96a3v5jos6bu5dp1kq6xz?concepto=${concept}&categoria=${category}&cantidad=${quantity}&mes=${currentMonth}`
+        `https://hook.eu1.make.com/m2geunx9mps96a3v5jos6bu5dp1kq6xz?concepto=${concept}&categoria=${category}&cantidad=${quantity.replace(".",",")}&mes=${currentMonth}`
       )
         .then((response) => response.text())
         .then((data) => setApiResponse(data))
