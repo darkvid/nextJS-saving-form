@@ -73,6 +73,7 @@ const SavingForm = () => {
           <option value="Formación">Formación</option>
           <option value="Comida">Comida</option>
           <option value="Yolanda">Yolanda</option>
+          <option value="David">David</option>
           <option value="Regalos">Regalos</option>
           <option value="Ocio">Ocio</option>
           <option value="Gasoil">Gasoil</option>
