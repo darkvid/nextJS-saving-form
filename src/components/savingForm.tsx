@@ -70,6 +70,7 @@ const SavingForm = () => {
       <div>
         <label htmlFor="category">Categoría:</label>
         <select id="category" name="category" value={category} onChange={handleCategoryChange}>
+          <option value="Caprichos">Cparichos</option>
           <option value="Formación">Formación</option>
           <option value="Comida">Comida</option>
           <option value="David">David</option>
