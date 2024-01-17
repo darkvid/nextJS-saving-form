@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 
 const SavingForm = () => {
-  const [category, setCategory] = useState("Formación");
+  const [category, setCategory] = useState("Caprichos");
   const [concept, setConcept] = useState("");
   const [quantity, setQuantity] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -70,7 +70,7 @@ const SavingForm = () => {
       <div>
         <label htmlFor="category">Categoría:</label>
         <select id="category" name="category" value={category} onChange={handleCategoryChange}>
-          <option value="Caprichos">Cparichos</option>
+          <option value="Caprichos">Caprichos</option>
           <option value="Formación">Formación</option>
           <option value="Comida">Comida</option>
           <option value="David">David</option>
