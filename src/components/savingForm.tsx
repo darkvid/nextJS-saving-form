@@ -79,6 +79,7 @@ const SavingForm = () => {
           <option value="Gasoil">Gasoil</option>
           <option value="Perros">Perros</option>
           <option value="Casa">Casa</option>
+          <option value="IngresoExtra">Ingreso Extra</option>
         </select>
       </div>
       <div>
