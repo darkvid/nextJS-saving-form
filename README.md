@@ -3,6 +3,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Description
 NextJS app only with a form that represent expenses, it will be connected with Make in order to register my savings
 
+## Requirements
+
+- **Node.js 24** or higher (see `.nvmrc`)
+
 ## Getting Started
 
 First, run the development server:
